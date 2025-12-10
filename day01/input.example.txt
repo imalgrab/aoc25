@@ -1,0 +1,2 @@
+# Sample input for Day 1
+# Replace this with your actual puzzle input
