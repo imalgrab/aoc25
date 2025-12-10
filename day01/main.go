@@ -1,11 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
 	"os"
-
-	"github.com/imalgrab/aoc25/utils"
 )
 
 func solvePart1(lines []string) int {
@@ -27,9 +26,19 @@ func main() {
 		inputPath = os.Args[1]
 	}
 
-	lines, err := utils.ReadLines(inputPath)
+	file, err := os.Open(inputPath)
 	if err != nil {
 		log.Fatalf("Error reading input file: %v", err)
+	}
+	defer file.Close()
+
+	var lines []string
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		lines = append(lines, scanner.Text())
+	}
+	if err := scanner.Err(); err != nil {
+		log.Fatalf("Error scanning input file: %v", err)
 	}
 
 	part1 := solvePart1(lines)
