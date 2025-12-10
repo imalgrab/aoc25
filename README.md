@@ -20,7 +20,7 @@ aoc25/
 
 ### Prerequisites
 
-- Go 1.20 or later
+- Go 1.24 or later
 
 ### Installation
 
